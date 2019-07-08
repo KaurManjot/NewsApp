@@ -15,7 +15,6 @@ public class NewsAdapter extends ArrayAdapter<News> {
         super(context, 0, newsList);
     }
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Check if there is an existing list item view (called convertView) that we can reuse,
