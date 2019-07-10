@@ -18,7 +18,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QueryUtils {
+public final class QueryUtils {
 
     /**
      * Tag for the log messages
@@ -93,6 +93,7 @@ public class QueryUtils {
             if (urlConnection.getResponseCode() == 200) {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
+                Log.e(LOG_TAG, "json response **********: " + urlConnection.getResponseCode() + ":"+jsonResponse);
             } else {
                 Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
@@ -165,7 +166,16 @@ public class QueryUtils {
                 String publicationDate = currentNews.getString("webPublicationDate");
                 String url = currentNews.getString("webUrl");
 
-                News news = new News(title, section, publicationDate, url);
+                //Get Author
+                String author = "";
+                JSONArray newsTags = currentNews.getJSONArray("tags");
+                if (newsTags.length() != 0)
+                {
+                    JSONObject currentTag = newsTags.getJSONObject(0);
+                    author = currentTag.getString("webTitle");
+                }
+
+                News news = new News(title, section, publicationDate, url, author);
 
                 newsList.add(news);
             }

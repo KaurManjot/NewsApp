@@ -14,6 +14,9 @@ public class News {
     /** Website URL of the news */
     private String url;
 
+    /** Website Author of the news */
+    private String author;
+
     /**
      *
      * @param title
@@ -21,11 +24,12 @@ public class News {
      * @param publicationDate date when the news was published
      * @param url
      */
-    public News(String title, String section, String publicationDate, String url) {
+    public News(String title, String section, String publicationDate, String url, String author) {
         this.title = title;
         this.section = section;
         this.publicationDate = publicationDate;
         this.url = url;
+        this.author = author;
     }
 
     public String getTitle() {
@@ -42,5 +46,9 @@ public class News {
 
     public String getUrl() {
         return url;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 }

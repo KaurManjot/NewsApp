@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
      * URL for news
      */
     private static final String NEWS_REQUEST_URL =
-            "https://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2019-07-07&api-key=test";
+            "https://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2019-07-07&api-key=test&show-tags=contributor";
 
     private static final int NEWS_LOADER_ID = 1;
 
